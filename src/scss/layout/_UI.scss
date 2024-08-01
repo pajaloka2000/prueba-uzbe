@@ -1,0 +1,82 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-app{
+    @include m.tablet{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 100vh;
+    }
+
+    .imagen{
+        display: flex;
+        height: 30rem;
+        background-image: url(../img/portada.jpg);
+        background-size: cover;
+        background-position: center center;
+        @include m.tablet{
+            height: auto;
+        }
+        justify-content: center;
+        align-items: center;
+    }
+    .texto-cortado{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        background-color: #000000;
+        mix-blend-mode: normal;
+        width: 200px;
+        height: 150px;
+        h2{
+            color: #ffee00;
+        }
+    }
+    .app{
+        width: 95%;
+        margin: 0 auto;
+        padding: 3rem 0;
+        @include m.tablet{
+            overflow: scroll;
+        }
+    }
+    .app::-webkit-scrollbar{
+        width: 7px;
+    }
+    .app::-webkit-scrollbar-thumb{
+        background: v.$azul;
+        border-radius: 5px;
+    }
+    
+}
+
+.barra{
+    margin: v.$separacion 0;
+
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    span{
+        color: v.$azul;
+        font-weight: v.$bold;
+    }
+    .boton{
+        @include m.boton(v.$azul, v.$blanco);
+        margin: 0;
+    }
+}
+
+.barra-taxis{
+    margin-bottom: 5rem;
+    @include m.tablet{
+        display: flex;
+        justify-content: space-between;
+    }
+    .boton{
+        margin: 0 0 1rem 0;
+    }
+}
